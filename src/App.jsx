@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>sda</h1>
+      {/* <h1>sda</h1> */}
       <Items />
       {/* <button onClick={dataFromAPI = getDataFromAPI}>Click</button>
       {dataFromAPI.map(review => (
