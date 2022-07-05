@@ -1,3 +1,5 @@
+import { useEffect } from "react"
+
 export default function Items() {
     const products = [
         {
@@ -50,6 +52,8 @@ export default function Items() {
         },
         // More products...
       ]
+    
+    
 
     return (
       <div className="bg-white">
