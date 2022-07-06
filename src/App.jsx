@@ -1,42 +1,21 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import React from 'react'
-import heading from './components/heading'
+import Heading from './components/Heading'
 import Items from './components/Items'
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 
 function App() {
   // const [count, setCount] = useState(0)
 
-  const [products, setProducts] = useState([])
-  
-  let dataFromAPI;
-
-  useEffect(() => {
-    getDataFromAPI();
-  }, [])
-
-  const getDataFromAPI = async () => {
-    const response = await fetch('http://localhost:1337/api/reviews?populate=*');
-    const data = await response.json();
-    console.log(data.data);
-    setProducts(data.data);
-  }
-
   return (
-    <div className="App">
-      {
-        products.map(product => (
-          <div>
-            <h1>{product.attributes.title}</h1>
-            <p>{product.attributes.review}</p>
-            <img src={product.attributes.reviewimg.data.attributes.name} alt="img" />
-          </div>
-          
-          // console.log(product.attributes.title)
-        ))
-      }
-      <Items />
-    </div>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Items />} />
+          <Route path="/review/:uid" element={<Heading />} />
+        {/* <Items /> */}
+        </Routes>
+      </div>
   )
 }
 
