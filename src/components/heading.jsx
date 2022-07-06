@@ -6,11 +6,10 @@ function Heading() {
   const { uid } = useParams();
 
   const [review, setReview] = useState([]);
-  // const [of, setOF] = useState([])
+  
 
   useEffect(() => {
     getReview();
-    // console.log(uid)
   }, []);
 
   const getReview = async () => {
@@ -23,7 +22,7 @@ function Heading() {
     <div>
       <p className=' text-2xl ' onClick={() => {
         console.log(review);
-      }}>DAAD</p>
+      }}>CLICK</p>
       <h1>{review.id}</h1>
       {/* <img src={review.attributes.reviewimg.data.attributes.name} alt="" /> */}
       {/* {review ? <h1>{review.attributes.title}</h1> : <h1>Loading...</h1>} */}
