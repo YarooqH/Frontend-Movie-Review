@@ -10,13 +10,22 @@ function Review() {
 
     useEffect(() => {
         getReview();
-        console.log(review);
+        // console.log(review);
     }, []);
 
     const getReview = async () => {
         const response = await fetch(`http://localhost:1337/api/reviews/1`);
-        const data = await response.json();
-        setReview(data.data);
+        const newData = await response.json();
+        const data = newData.data;
+        // console.log(data)
+        // console.log(data)
+        setReview(data);
+
+        setReview((data) => {
+            console.log(data);
+            return data;
+        })
+        // console.log(review)
 
         // notUseState = data.data
     }
