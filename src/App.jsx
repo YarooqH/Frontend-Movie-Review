@@ -9,6 +9,7 @@ function App() {
   // const [count, setCount] = useState(0)
 
   return (
+    <Router>
       <div className="App">
         <Routes>
           <Route path="/" element={<Items />} />
@@ -16,6 +17,7 @@ function App() {
         {/* <Items /> */}
         </Routes>
       </div>
+    </Router>
   )
 }
 

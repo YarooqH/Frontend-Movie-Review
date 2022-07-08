@@ -6,10 +6,12 @@ function Heading() {
   const { uid } = useParams();
 
   const [review, setReview] = useState([]);
+  const [loading, setLoading] = useState(true);
   
 
   useEffect(() => {
     getReview();
+    console.log(review);
   }, []);
 
   const getReview = async () => {
@@ -20,12 +22,9 @@ function Heading() {
 
   return (
     <div>
-      <p className=' text-2xl ' onClick={() => {
-        console.log(review);
-      }}>CLICK</p>
-      <h1>{review.id}</h1>
-      {/* <img src={review.attributes.reviewimg.data.attributes.name} alt="" /> */}
-      {/* {review ? <h1>{review.attributes.title}</h1> : <h1>Loading...</h1>} */}
+      {/* <h1>
+        {state.attributes.title}
+      </h1> */}
     </div>
   )
 }
