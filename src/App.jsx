@@ -1,7 +1,7 @@
 import './App.css'
 import React from 'react'
-import Heading from './components/Heading'
 import Items from './components/Items'
+import Review from './components/Review'
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Items />} />
-          <Route path="/review/:uid" element={<Heading />} />
+          <Route path="/review/:uid" element={<Review />} />
         {/* <Items /> */}
         </Routes>
       </div>
