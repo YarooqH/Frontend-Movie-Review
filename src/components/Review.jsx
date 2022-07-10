@@ -11,8 +11,7 @@ function Review() {
         const response = await fetch(`http://localhost:1337/api/reviews/${uid}`);
         const newData = await response.json();
         const data = newData.data.attributes;
-
-        // console.log(review);
+        
         setReview(data);
         refReview.current = data;
     }

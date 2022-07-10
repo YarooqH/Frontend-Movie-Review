@@ -12,7 +12,6 @@ export default function Items() {
     const response = await fetch('http://localhost:1337/api/reviews?populate=*');
     const data = await response.json();
     setProducts(data.data);
-    // console.log(data.data);
   }
   
 
