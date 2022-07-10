@@ -12,7 +12,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Items />} />
           <Route path="/review/:uid" element={<Review />} />
-        {/* <Items /> */}
         </Routes>
       </div>
     </Router>
