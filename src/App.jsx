@@ -1,4 +1,4 @@
-import './App.css'
+import './styles/App.css'
 import React from 'react'
 import Items from './components/Items'
 import Review from './components/Review'
