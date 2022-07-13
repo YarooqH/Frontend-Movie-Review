@@ -10,7 +10,7 @@ export default function Items() {
     getDataFromAPI();
   }, [])
 
-  const getColor = (image) => {
+  const getColor = (img) => {
     const colorThief = new ColorThief();
     // const img = document.querySelector('img');
 
@@ -28,6 +28,11 @@ export default function Items() {
     const data = await response.json();
     setProducts(data.data);
   }
+
+  let image = new Image();
+  image.src = "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60";
+  console.log(getColor(image));
+
   
 
   return (
