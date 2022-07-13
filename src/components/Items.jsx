@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
-import ColorThief from './node_modules/colorthief/dist/color-thief.mjs'
+import { BrowserRouter as Router, Link } from "react-router-dom"
+// import ColorThief from './node_modules/colorthief/dist/color-thief.mjs'
 
 
 export default function Items() {
@@ -10,30 +10,11 @@ export default function Items() {
     getDataFromAPI();
   }, [])
 
-  const getColor = (img) => {
-    const colorThief = new ColorThief();
-    // const img = document.querySelector('img');
-
-    if (img.complete) {
-      colorThief.getColor(img);
-    } else {
-      image.addEventListener('load', function() {
-        colorThief.getColor(img);
-      });
-    }
-  }
-
   const getDataFromAPI = async () => {
     const response = await fetch('http://localhost:1337/api/reviews?populate=*');
     const data = await response.json();
     setProducts(data.data);
   }
-
-  let image = new Image();
-  image.src = "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60";
-  console.log(getColor(image));
-
-  
 
   return (
     <div>
