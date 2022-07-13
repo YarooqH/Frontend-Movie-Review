@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
+import ColorThief from './node_modules/colorthief/dist/color-thief.mjs'
+
 
 export default function Items() {
   const [products, setProducts] = useState([])
@@ -7,6 +9,19 @@ export default function Items() {
   useEffect(() => {
     getDataFromAPI();
   }, [])
+
+  const getColor = (image) => {
+    const colorThief = new ColorThief();
+    // const img = document.querySelector('img');
+
+    if (img.complete) {
+      colorThief.getColor(img);
+    } else {
+      image.addEventListener('load', function() {
+        colorThief.getColor(img);
+      });
+    }
+  }
 
   const getDataFromAPI = async () => {
     const response = await fetch('http://localhost:1337/api/reviews?populate=*');
@@ -33,7 +48,7 @@ export default function Items() {
                 <h3 className="mt-4 text-lg font-medium text-gray-700">{product.attributes.title}</h3>
                 <p className="mt-1 text-sm text-gray-900">{product.attributes.plot}</p> */}
               {/* </a> */}
-              <div class="bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+              <div class="bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
                     <img class="rounded-t-lg aspect-[10/15] bg-cover" src={product.attributes.reviewimg.data.attributes.name} alt={product.attributes.title} />
                 </a>
