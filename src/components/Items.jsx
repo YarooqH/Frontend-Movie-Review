@@ -84,7 +84,7 @@ export default function Items() {
               {/* </a> */}
               <div className="bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <div href="#">
-                    <img onLoad={myColor} className="img rounded-t-lg aspect-[10/15] bg-cover" src={product.attributes.reviewimg.data.attributes.name} alt={product.attributes.title} />
+                    <img onLoad={myColor} crossOrigin="anonymous" className="img rounded-t-lg aspect-[10/15] bg-cover" src={product.attributes.reviewimg.data.attributes.name} alt={product.attributes.title} />
                 </div>
                 <div className="p-5">
                     <div href="#">
