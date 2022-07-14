@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react"
 import { BrowserRouter as Router, Link } from "react-router-dom"
 // import ColorThief from './node_modules/colorthief/dist/color-thief.mjs'
+// import ColorThief from '../colorthief.min.js'
 
 
 export default function Items() {
   const [products, setProducts] = useState([])
+
+ 
 
   useEffect(() => {
     getDataFromAPI();
@@ -15,6 +18,51 @@ export default function Items() {
     const data = await response.json();
     setProducts(data.data);
   }
+
+  const myColor = () => {
+    let color_thief = new ColorThief();
+    let sample_image = new Image();
+    let color;
+    let box = document.getElementsByClassName('box');
+
+    console.log("henlo")
+    
+    // setTimeout(() => {
+    //   console.log(color_thief.getColor(sample_image));
+    //   color = color_thief.getColor(sample_image);
+    //   changeColor(box, color);
+    // }, 3000);
+
+    // sample_image.addEventListener('load', function () {
+    //   console.log(color_thief.getColor(sample_image));
+    //   color = color_thief.getColor(sample_image);
+    //   changeColor(box, color);
+    // })
+    
+    sample_image.onload = () => {
+      console.log(color_thief.getColor(sample_image));
+      color = color_thief.getColor(sample_image);
+      changeColor(box, color);
+      // color_thief.getColor(sample_image);
+    };
+
+    sample_image.crossOrigin = 'anonymous';
+    sample_image.src = document.getElementsByClassName('img').src;  
+  
+    const changeColor = (ele, clr) => {
+      // heading.style.color = clr;
+      // box.style.color = "rgb(" + color + ")";    
+      // box.style.color = 'red'
+      box.style.color = 'pink';
+    
+    }
+
+  }
+
+
+  
+
+ 
 
   return (
     <div>
@@ -34,19 +82,15 @@ export default function Items() {
                 <h3 className="mt-4 text-lg font-medium text-gray-700">{product.attributes.title}</h3>
                 <p className="mt-1 text-sm text-gray-900">{product.attributes.plot}</p> */}
               {/* </a> */}
-              <div class="bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img class="rounded-t-lg aspect-[10/15] bg-cover" src={product.attributes.reviewimg.data.attributes.name} alt={product.attributes.title} />
-                </a>
-                <div class="p-5">
-                    <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{product.attributes.title}</h5>
-                    </a>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{product.attributes.plot}</p>
-                    <a href="#" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        Read more
-                        <svg class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                    </a>
+              <div className="bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <div href="#">
+                    <img onLoad={myColor} className="img rounded-t-lg aspect-[10/15] bg-cover" src={product.attributes.reviewimg.data.attributes.name} alt={product.attributes.title} />
+                </div>
+                <div className="p-5">
+                    <div href="#">
+                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{product.attributes.title}</h5>
+                    </div>
+                    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{product.attributes.plot}</p>
                 </div>
             </div>
             </Link>

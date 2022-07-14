@@ -8,7 +8,7 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
+      <div>
         <Routes>
           <Route path="/" element={<Items />} />
           <Route path="/review/:uid" element={<Review />} />
