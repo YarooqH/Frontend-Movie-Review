@@ -74,6 +74,7 @@ export default function Items() {
       color = color_thief.getColor(sample_image);
       changeColor(box, color);
       // color_thief.getColor(sample_image);
+      // sad
     };
 
     sample_image.src = document.getElementsByClassName('img')[0].src;  
