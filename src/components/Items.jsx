@@ -19,11 +19,40 @@ export default function Items() {
     setProducts(data.data);
   }
 
-  const myColor = () => {
+  const myColor = async () => {
     let color_thief = new ColorThief();
     let sample_image = new Image();
     let color;
     let box = document.getElementsByClassName('box');
+    let image1 = document.images[0];
+
+    sample_image.crossOrigin = 'anonymous';
+    
+
+    // if (sample_image.complete) {
+    //   color_thief.getColor(sample_image);
+    //   console.log("sads")
+    // } else {
+    //   console.log("sads")
+    //   sample_image.addEventListener('load', function() {
+    //     console.log("sadsdf")
+    //     color_thief.getColor(sample_image);
+    //   });
+    // }
+
+    // for (let i = 0; i < 1; i++) {
+    //   sample_image.src = box[i].style.backgroundImage.slice(5, -2);
+    //   color = color_thief.getColor(sample_image);
+    //   console.log(color)
+    //   console.log("sads")
+    //   box[i].style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+    // }
+
+    // sample_image.src = box[0].style.backgroundImage.slice(5, -2);
+    // color = color_thief.getColor(sample_image);
+    // console.log(color)
+    // console.log("sads")
+    // box[0].style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
 
     console.log("henlo")
     
@@ -40,14 +69,15 @@ export default function Items() {
     // })
     
     sample_image.onload = () => {
+      image1.src = this.src;
       console.log(color_thief.getColor(sample_image));
       color = color_thief.getColor(sample_image);
       changeColor(box, color);
       // color_thief.getColor(sample_image);
     };
 
-    sample_image.crossOrigin = 'anonymous';
-    sample_image.src = document.getElementsByClassName('img').src;  
+    sample_image.src = document.getElementsByClassName('img')[0].src;  
+
   
     const changeColor = (ele, clr) => {
       // heading.style.color = clr;
