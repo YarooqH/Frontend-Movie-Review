@@ -1,0 +1,26 @@
+.review > h5, .review > p {
+  background-color: transparent;
+}
+
+.review > h5 {
+    font-family: 'Oxygen';
+    /* font-weight: 700; */
+    /* color: #fff; */
+    /* font-size: 64px; */
+}
+
+.review > p {
+    color: rgb(221, 221, 221);
+  font-size: 12.5px;
+  font-family: 'Oxygen';
+  /* text-overflow: ellipsis; */
+  /* height: 500px; */
+  /* white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+  display: -webkit-box;
+  /* max-width: 400px; */
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

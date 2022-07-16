@@ -1,99 +1,68 @@
 import { useState, useEffect } from "react"
 import { BrowserRouter as Router, Link } from "react-router-dom"
+import '../styles/items.css'
 // import ColorThief from './node_modules/colorthief/dist/color-thief.mjs'
 // import ColorThief from '../colorthief.min.js'
 
 
 export default function Items() {
-  const [products, setProducts] = useState([])
-
- 
+  const [products, setProducts] = useState([]) 
+  // let count = 0
+  // let count1 = 0
 
   useEffect(() => {
+    let count = 0
+    let count1 = 0
     getDataFromAPI();
+    setTimeout(() => {
+      getClr(count, count1);
+    }, 300);
   }, [])
 
   const getDataFromAPI = async () => {
     const response = await fetch('http://localhost:1337/api/reviews?populate=*');
     const data = await response.json();
     setProducts(data.data);
-  }
+  } 
 
-  const myColor = async () => {
-    let color_thief = new ColorThief();
-    let sample_image = new Image();
-    let color;
-    let box = document.getElementsByClassName('box');
-    let image1 = document.images[0];
-
-    sample_image.crossOrigin = 'anonymous';
+  const getClr = (count, count1) => {
+    let itemsLength = document.getElementsByClassName('imag').length;
+    console.log(itemsLength);
+    for (let i = 0; i < itemsLength; i++) {
+      let color_thief = new ColorThief();
+      let sample_image = new Image();
+      let color;
+      
+      sample_image.onload = () => {
+          console.log(color_thief.getColor(sample_image));
+          color = color_thief.getColor(sample_image);
+          changeColor(color);
+      };
+      // if (sample_image.complete) {
+      //   color_thief.getColor(sample_image);
+      // } else {
+      //   sample_image.addEventListener('load', function() {
+      //     color_thief.getColor(sample_image);
+      //   });
+      // }
     
-
-    // if (sample_image.complete) {
-    //   color_thief.getColor(sample_image);
-    //   console.log("sads")
-    // } else {
-    //   console.log("sads")
-    //   sample_image.addEventListener('load', function() {
-    //     console.log("sadsdf")
-    //     color_thief.getColor(sample_image);
-    //   });
-    // }
-
-    // for (let i = 0; i < 1; i++) {
-    //   sample_image.src = box[i].style.backgroundImage.slice(5, -2);
-    //   color = color_thief.getColor(sample_image);
-    //   console.log(color)
-    //   console.log("sads")
-    //   box[i].style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-    // }
-
-    // sample_image.src = box[0].style.backgroundImage.slice(5, -2);
-    // color = color_thief.getColor(sample_image);
-    // console.log(color)
-    // console.log("sads")
-    // box[0].style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-
-    console.log("henlo")
-    
-    // setTimeout(() => {
-    //   console.log(color_thief.getColor(sample_image));
-    //   color = color_thief.getColor(sample_image);
-    //   changeColor(box, color);
-    // }, 3000);
-
-    // sample_image.addEventListener('load', function () {
-    //   console.log(color_thief.getColor(sample_image));
-    //   color = color_thief.getColor(sample_image);
-    //   changeColor(box, color);
-    // })
-    
-    sample_image.onload = () => {
-      image1.src = this.src;
-      console.log(color_thief.getColor(sample_image));
-      color = color_thief.getColor(sample_image);
-      changeColor(box, color);
-      // color_thief.getColor(sample_image);
-      // sad
-    };
-
-    sample_image.src = document.getElementsByClassName('img')[0].src;  
-
+      sample_image.crossOrigin = 'anonymous';
+      sample_image.src = document.getElementsByClassName('imag')[count].src;
   
-    const changeColor = (ele, clr) => {
-      // heading.style.color = clr;
-      // box.style.color = "rgb(" + color + ")";    
-      // box.style.color = 'red'
-      box.style.color = 'pink';
-    
+      // let newt = document.getElementsByClassName('imag')
+      // console.log(newt.length)
+      
+      const changeColor = (clr) => {
+          console.log(clr, count1);
+          // let heading = document.getElementsByClassName('heading');
+          let bkg = document.getElementsByClassName('review');
+          bkg[count1].style.backgroundColor = `rgb(${clr[0]}, ${clr[1]}, ${clr[2]})`;
+          count1++;
+      }
+      count++;        
     }
-
   }
 
-
-  
-
- 
 
   return (
     <div>
@@ -113,17 +82,20 @@ export default function Items() {
                 <h3 className="mt-4 text-lg font-medium text-gray-700">{product.attributes.title}</h3>
                 <p className="mt-1 text-sm text-gray-900">{product.attributes.plot}</p> */}
               {/* </a> */}
-              <div className="bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <div href="#">
-                    <img onLoad={myColor} crossOrigin="anonymous" className="img rounded-t-lg aspect-[10/15] bg-cover" src={product.attributes.reviewimg.data.attributes.name} alt={product.attributes.title} />
+              <div className="rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <div>
+                    <img crossOrigin="anonymous" className="imag rounded-t-lg aspect-[10/15] bg-cover" src={product.attributes.reviewimg.data.attributes.name} alt={product.attributes.title} />
                 </div>
-                <div className="p-5">
-                    <div href="#">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{product.attributes.title}</h5>
+                <div className="rounded-sm review p-5">
+                    <div>
+                        <h5 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">{product.attributes.title}</h5>
                     </div>
-                    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{product.attributes.plot}</p>
+                    <p className="h-[8rem] mb-3 text-gray-700 dark:text-gray-400">{product.attributes.plot}</p>
                 </div>
             </div>
+            {
+            
+            }
             </Link>
           ))}
         </div>
