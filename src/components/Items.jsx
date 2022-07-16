@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react"
-import { BrowserRouter as Router, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import '../styles/items.css'
 
 
 export default function Items() {
   const [products, setProducts] = useState([]) 
-  // let count = 0
-  // let count1 = 0
 
   useEffect(() => {
     let count = 0
