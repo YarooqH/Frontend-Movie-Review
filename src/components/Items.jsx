@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react"
 import { BrowserRouter as Router, Link } from "react-router-dom"
 import '../styles/items.css'
-// import ColorThief from './node_modules/colorthief/dist/color-thief.mjs'
-// import ColorThief from '../colorthief.min.js'
 
 
 export default function Items() {
