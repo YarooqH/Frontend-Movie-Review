@@ -34,13 +34,6 @@ export default function Items() {
           color = color_thief.getColor(sample_image);
           changeColor(color);
       };
-      // if (sample_image.complete) {
-      //   color_thief.getColor(sample_image);
-      // } else {
-      //   sample_image.addEventListener('load', function() {
-      //     color_thief.getColor(sample_image);
-      //   });
-      // }
     
       sample_image.crossOrigin = 'anonymous';
       sample_image.src = document.getElementsByClassName('imag')[count].src;
