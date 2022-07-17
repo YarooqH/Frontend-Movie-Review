@@ -44,13 +44,9 @@ export default function Items() {
     
       sample_image.crossOrigin = 'anonymous';
       sample_image.src = document.getElementsByClassName('imag')[count].src;
-  
-      // let newt = document.getElementsByClassName('imag')
-      // console.log(newt.length)
       
       const changeColor = (clr) => {
           console.log(clr, count1);
-          // let heading = document.getElementsByClassName('heading');
           let bkg = document.getElementsByClassName('review');
           bkg[count1].style.backgroundColor = `rgb(${clr[0]}, ${clr[1]}, ${clr[2]})`;
           count1++;
