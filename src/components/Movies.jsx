@@ -41,7 +41,18 @@ export default function Movies() {
       const changeColor = (clr) => {
           console.log(clr, count1);
           let bkg = document.getElementsByClassName('review');
+          let txt = document.getElementsByClassName('sum-text');
+          // txtElement = txt.length;
+          console.log(txt.length);
           bkg[count1].style.backgroundColor = `rgb(${clr[0]}, ${clr[1]}, ${clr[2]})`;
+          if(clr[0] > 130 && clr[1] > 130 && clr[2] > 130) {
+            // for(let i = 0; i < txt.length; i++) {
+            //   txt[i].style.color = 'black';
+            // }
+            txt[count1-2].style.color = '#000';
+            txt[count1-3].style.color = '#000';
+          }
+
           count1++;
       }
       count++;        
@@ -72,16 +83,24 @@ export default function Movies() {
                 <div>
                     <img crossOrigin="anonymous" className="imag rounded-t-lg aspect-[10/15] bg-cover" src={product.attributes.movieImg.data.attributes.name} alt={product.attributes.title} />
                 </div>
-                <div className="rounded-sm review p-5">
-                    <div>
-                        <h5 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">{product.attributes.title}</h5>
+                <div className="rounded-sm h-[16rem] movie review p-5">
+                    <div className="h-[4.2rem]">
+                        <h5 className="sum-text mb-2 text-2xl font-bold text-gray-900 dark:text-white">{product.attributes.title}</h5>
                     </div>
-                    <p className="h-[8rem] mb-3 text-gray-700 dark:text-gray-400">{product.attributes.plot}</p>
+                      <p className="sum-text h-max-[8rem] mb-3 text-gray-700 dark:text-gray-400">{product.attributes.plot}</p>
+                    
+                    {/* <div className="flex justify-between items-center">
+                        <div className="flex items-center">
+                            <div className="flex items-center">
+                                <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                                </svg>
+                                <span className="text-gray-700 dark:text-gray-400">{product.attributes.rating}</span>
+                              </div>
+                            </div>
+                           </div>                  */}
                 </div>
             </div>
-            {
-            
-            }
             </Link>
           ))}
         </div>
