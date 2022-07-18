@@ -16,7 +16,7 @@ export default function Items() {
   }, [])
 
   const getDataFromAPI = async () => {
-    const response = await fetch('http://localhost:1337/api/reviews?populate=*');
+    const response = await fetch('http://localhost:1337/api/movies?populate=*');
     const data = await response.json();
     setProducts(data.data);
   } 
@@ -52,7 +52,7 @@ export default function Items() {
   return (
     <div>
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-      <h1 className="tv-shows">TV SHOWS</h1>
+      <h1 className="tv-shows">MOVIES</h1>
         <h2 className="sr-only">Reviews</h2>
         <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {products.map((product) => (
