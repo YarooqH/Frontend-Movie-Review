@@ -72,16 +72,13 @@ export default function Items() {
                 <div>
                     <img crossOrigin="anonymous" className="imag rounded-t-lg aspect-[10/15] bg-cover" src={product.attributes.reviewimg.data.attributes.name} alt={product.attributes.title} />
                 </div>
-                <div className="rounded-sm review p-5">
+                <div className="rounded-sm h-[16rem] movie review p-5">
                     <div>
-                        <h5 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">{product.attributes.title}</h5>
+                        <h5 className="sum-text mb-2 text-2xl font-bold text-gray-900 dark:text-white">{product.attributes.title}</h5>
                     </div>
-                    <p className="h-[8rem] mb-3 text-gray-700 dark:text-gray-400">{product.attributes.plot}</p>
+                    <p className=" sum-text h-max-[8rem] mb-3 text-gray-700 dark:text-gray-400">{product.attributes.plot}</p>
                 </div>
             </div>
-            {
-            
-            }
             </Link>
           ))}
         </div>
