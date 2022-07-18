@@ -12,7 +12,7 @@ export default function Items() {
     getDataFromAPI();
     setTimeout(() => {
       getClr(count, count1);
-    }, 300);
+    }, 100);
   }, [])
 
   const getDataFromAPI = async () => {
