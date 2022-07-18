@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react'
 import { useParams } from 'react-router-dom'
 
-function Review() {
+function MovieReview() {
     const { uid } = useParams();
 
     const [review, setReview] = useState({});
@@ -31,4 +31,4 @@ function Review() {
     )
 }
 
-export default Review
+export default MovieReview

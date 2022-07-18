@@ -86,7 +86,7 @@ export default function Items() {
           ))}
         </div>
         <div className="btn-container">
-          <button class="button-52" role="button">Show More</button>
+          <button className="button-52" role="button">Show More</button>
         </div>
       </div>
     </div>

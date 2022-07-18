@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import '../styles/items.css'
 
 
-export default function Items() {
+export default function Movies() {
   const [products, setProducts] = useState([]) 
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export default function Items() {
         <h2 className="sr-only">Reviews</h2>
         <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {products.map((product) => (
-            <Link className="group" key={product.id} to={`/review/${product.id}`}>
+            <Link className="group" key={product.id} to={`/movie/${product.id}`}>
               {/* <a href="#" className="group"> */}
                 {/* <div className="max-h-36 aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
                   <img
@@ -70,7 +70,7 @@ export default function Items() {
               {/* </a> */}
               <div className="rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <div>
-                    <img crossOrigin="anonymous" className="imag rounded-t-lg aspect-[10/15] bg-cover" src={product.attributes.reviewimg.data.attributes.name} alt={product.attributes.title} />
+                    <img crossOrigin="anonymous" className="imag rounded-t-lg aspect-[10/15] bg-cover" src={product.attributes.movieImg.data.attributes.name} alt={product.attributes.title} />
                 </div>
                 <div className="rounded-sm review p-5">
                     <div>
@@ -86,7 +86,7 @@ export default function Items() {
           ))}
         </div>
         <div className="btn-container">
-          <button class="button-52" role="button">Show More</button>
+          <button className="button-52" role="button">Show More</button>
         </div>
       </div>
     </div>

@@ -10,15 +10,15 @@ function Heading() {
   
 
   useEffect(() => {
-    getReview();
+    // getReview();
     console.log(review);
   }, []);
 
-  const getReview = async () => {
-    const response = await fetch(`http://localhost:1337/api/reviews/${uid}?populate=*`);
-    const data = await response.json();
-    setReview(data.data);
-  }
+  // const getReview = async () => {
+  //   const response = await fetch(`http://localhost:1337/api/reviews/${uid}?populate=*`);
+  //   const data = await response.json();
+  //   setReview(data.data);
+  // }
 
   return (
     <div>
