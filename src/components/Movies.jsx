@@ -45,13 +45,13 @@ export default function Movies() {
           // txtElement = txt.length;
           console.log(txt.length);
           bkg[count1].style.backgroundColor = `rgb(${clr[0]}, ${clr[1]}, ${clr[2]})`;
-          if(clr[0] > 130 && clr[1] > 130 && clr[2] > 130) {
+          // if(clr[0] > 130 && clr[1] > 130 && clr[2] > 130) {
             // for(let i = 0; i < txt.length; i++) {
             //   txt[i].style.color = 'black';
             // }
-            txt[count1-2].style.color = '#000';
-            txt[count1-3].style.color = '#000';
-          }
+            // txt[count1-2].style.color = '#000';
+            // txt[count1-3].style.color = '#000';
+          // }
 
           count1++;
       }
