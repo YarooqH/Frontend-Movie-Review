@@ -24,14 +24,13 @@ function MovieReview() {
 
   const getClr = () => {
     let itemsLength = document.getElementsByClassName('review-img').length;
-    console.log(itemsLength);
-    // for (let i = 0; i < itemsLength; i++) {
+    // console.log(itemsLength);
       let color_thief = new ColorThief();
       let sample_image = new Image();
       let color;
       
       sample_image.onload = () => {
-          console.log(color_thief.getColor(sample_image));
+          // console.log(color_thief.getColor(sample_image));
           color = color_thief.getColor(sample_image);
           let template = color_thief.getPalette(sample_image, 2);
           if(color[0] < 120 && color[1] < 120 && color[2] < 120) {
@@ -45,28 +44,13 @@ function MovieReview() {
       sample_image.src = document.getElementsByClassName('review-img')[0].src;
       
       const changeColor = (clr) => {
-        if(clr)
-          console.log(clr);
+          // console.log(clr);
           let bkg = document.getElementsByClassName('review-heading');
           let star = document.getElementsByClassName('star');
-          // let txt = document.getElementsByClassName('sum-text');
-          // txtElement = txt.length;
-          // console.log(txt.length);
+        
           bkg[0].style.color = `rgb(${clr[0]}, ${clr[1]}, ${clr[2]})`;
           star[0].style.color = `rgb(${clr[0]}, ${clr[1]}, ${clr[2]})`;
-          // if(clr[0] > 130 && clr[1] > 130 && clr[2] > 130) {
-            // for(let i = 0; i < txt.length; i++) {
-            //   txt[i].style.color = 'black';
-            // }
-            // txt[count2].style.color = '#000';
-            // txt[count2+1].style.color = '#000';
-            // txt[count2-1].style.color = '#000';
-          // }
-
-      //     count1++;
-      //     count2 = count2 + 2;
-      // }
-      // count++;        
+              
     }
   }
 
