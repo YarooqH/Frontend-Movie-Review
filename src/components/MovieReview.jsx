@@ -1,6 +1,8 @@
 import React, {useEffect, useState, useRef} from 'react'
 import { useParams } from 'react-router-dom'
 
+import '../styles/items.css'
+
 function MovieReview() {
     const { uid } = useParams();
 
