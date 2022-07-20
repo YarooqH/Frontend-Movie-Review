@@ -62,6 +62,48 @@
   margin-bottom: -35px;
 }
 
+.review-heading {
+    
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 60px;
+  /* line-height: 291px; */
+  /* text-align: center;   */
+  
+  color: #6225E6;
+
+  /* text-shadow: 5px 10px 5px pink inset; */
+  /* box-shadow: 12px 0px 0px 0px rgba(214, 55, 55, 1); */
+
+  /* filter: drop-shadow(13px 0px 0px #D63737); */
+   text-shadow: -3px 0px 0px #D63737;
+  /* -webkit-background-clip: text;
+  -moz-background-clip: text; */
+  /* background-clip: text;
+   /* text-shadow: 12px 0px 0px #D63737; */
+   /* inset: 20px; */
+   /* letter-spacing: 5px; */
+   /* text-shadow: 6px 0  #6225E6, 0px 0  red;  */
+  /* -webkit-mask: linear-gradient(#000 0 0); */
+  /* -webkit-mask-clip: text;
+  mask-clip: text; */
+
+}
+
+.review-title{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 54px;
+  /* line-height: 384px; */
+  text-align: left;
+
+  color: rgba(255, 255, 255, 0.19);
+  margin: 0;
+  padding: 0;
+  margin-bottom: -10px;
+}
 
 /* CSS */
 .button-52 {
