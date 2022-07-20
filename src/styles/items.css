@@ -66,18 +66,19 @@
     
   font-family: 'Poppins';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 60px;
+  color: #ffff;
   /* line-height: 291px; */
   /* text-align: center;   */
   
-  color: #6225E6;
+  /* color: #6225E6; */
 
   /* text-shadow: 5px 10px 5px pink inset; */
   /* box-shadow: 12px 0px 0px 0px rgba(214, 55, 55, 1); */
 
   /* filter: drop-shadow(13px 0px 0px #D63737); */
-   text-shadow: -3px 0px 0px #D63737;
+   /* text-shadow: -3px 0px 0px #D63737; */
   /* -webkit-background-clip: text;
   -moz-background-clip: text; */
   /* background-clip: text;
