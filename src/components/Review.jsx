@@ -34,11 +34,11 @@ function Review() {
         <p className='text-white'>{refReview.current.review}</p> */}
         <section className="text-gray-400 body-font overflow-hidden">
         <div className="container px-5 py-24 mx-auto">
-          <div className="lg:w-4/5 mx-auto flex flex-wrap">
-            <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src={refReview.current.reviewimg.data.attributes.name}/>
-            <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-              <h1 className="text-white text-3xl title-font font-medium mb-1">{refReview.current.title}</h1>
-              <div className="flex mb-4">
+          <div className="flex flex-wrap">
+            {/* <img alt="ecommerce" className="lg:w-1/2 lg:h-auto h-64 object-cover object-center rounded" src={refReview.current.reviewimg.data.attributes.name}/> */}
+            <div className="lg:w-1/2 w-full lg:pl-10">
+              <h1 className="review-heading text-white text-left mb-1">{refReview.current.title}</h1>
+              <div className="flex mb-4 mt-4">
                 <span className="flex items-center">
                   <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidh="2" className="w-4 h-4 text-white" viewBox="0 0 24 24">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
@@ -79,7 +79,7 @@ function Review() {
                   </a>
                 </span> */}
               </div>
-              <h1 className='tv-shows'>Review</h1>
+              <h1 className='review-title'>Review</h1>
               <p className="leading-relaxed">{refReview.current.review}</p>
               {/* <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-800 mb-5">
                 <div className="flex">
