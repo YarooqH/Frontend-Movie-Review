@@ -52,21 +52,21 @@ export default function Items() {
         let bkg = document.getElementsByClassName('review');
         let txt = document.getElementsByClassName('sum-text');
         // txtElement = txt.length;
-        console.log(txt.length);
-        bkg[count1].style.backgroundColor = `rgb(${clr[0]}, ${clr[1]}, ${clr[2]})`;
-        if(clr[0] > 130 && clr[1] > 130 && clr[2] > 130) {
-          // for(let i = 0; i < txt.length; i++) {
-          //   txt[i].style.color = 'black';
-          // }
-          txt[count2].style.color = '#000';
-          txt[count2+1].style.color = '#000';
-          // txt[count2-1].style.color = '#000';
-        }
+        console.log(txt.length + "here");
+        // bkg[count1].style.backgroundColor = `rgb(${clr[0]}, ${clr[1]}, ${clr[2]})`;
+        // if((clr[0] + clr[1] > 240) && (clr[2] + clr[1] > 240) && (clr[0] + clr[2] > 240)) {
+        //   // for(let i = 0; i < txt.length; i++) {
+        //   //   txt[i].style.color = 'black';
+        //   // }
+        //   txt[count2].style.color = '#000';
+        //   txt[count2+1].style.color = '#000';
+        //   // txt[count2-1].style.color = '#000';
+        // }
 
-        count1++;
-        count2 = count2 + 2;
+        // count1++;
+        // count2 = count2 + 2;
     }
-    count++;           
+    // count++;           
     }
   }
 
