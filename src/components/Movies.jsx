@@ -34,7 +34,7 @@ export default function Movies() {
         // console.log(color_thief.getColor(sample_image));
         color = color_thief.getColor(sample_image);
         let template = color_thief.getPalette(sample_image, 3);
-        if(color[0] > 120 && color[1] > 120 && color[2] > 120) {
+        if(color[0] < 120 && color[1] < 120 && color[2] < 120) {
           color = template[1];
           if(color[0] > 120 && color[1] > 120 && color[2] > 120) {
             color = template[2];

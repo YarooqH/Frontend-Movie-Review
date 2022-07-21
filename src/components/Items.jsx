@@ -9,9 +9,10 @@ export default function Items() {
   useEffect(() => {
     let count = 0
     let count1 = 0
+    let count2 = 0
     getDataFromAPI();
     setTimeout(() => {
-      getClr(count, count1);
+      getClr(count, count1, count2);
     }, 300);
   }, [])
 
@@ -21,7 +22,7 @@ export default function Items() {
     setProducts(data.data);
   } 
 
-  const getClr = (count, count1) => {
+  const getClr = (count, count1, count2) => {
     let itemsLength = document.getElementsByClassName('imag').length;
     console.log(itemsLength);
     for (let i = 0; i < itemsLength; i++) {
@@ -47,12 +48,25 @@ export default function Items() {
       sample_image.src = document.getElementsByClassName('imag')[count].src;
       
       const changeColor = (clr) => {
-          console.log(clr, count1);
-          let bkg = document.getElementsByClassName('review');
-          bkg[count1].style.backgroundColor = `rgb(${clr[0]}, ${clr[1]}, ${clr[2]})`;
-          count1++;
-      }
-      count++;        
+        console.log(clr, count1);
+        let bkg = document.getElementsByClassName('review');
+        let txt = document.getElementsByClassName('sum-text');
+        // txtElement = txt.length;
+        console.log(txt.length);
+        bkg[count1].style.backgroundColor = `rgb(${clr[0]}, ${clr[1]}, ${clr[2]})`;
+        if(clr[0] > 130 && clr[1] > 130 && clr[2] > 130) {
+          // for(let i = 0; i < txt.length; i++) {
+          //   txt[i].style.color = 'black';
+          // }
+          txt[count2].style.color = '#000';
+          txt[count2+1].style.color = '#000';
+          // txt[count2-1].style.color = '#000';
+        }
+
+        count1++;
+        count2 = count2 + 2;
+    }
+    count++;           
     }
   }
 
