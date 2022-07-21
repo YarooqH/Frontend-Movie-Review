@@ -30,10 +30,18 @@ export default function Items() {
       let color;
       
       sample_image.onload = () => {
-          console.log(color_thief.getColor(sample_image));
-          color = color_thief.getColor(sample_image);
-          changeColor(color);
-      };
+        // console.log(color_thief.getColor(sample_image));
+        color = color_thief.getColor(sample_image);
+        let template = color_thief.getPalette(sample_image, 3);
+        if(color[0] > 120 && color[1] > 120 && color[2] > 120) {
+          color = template[1];
+          if(color[0] > 120 && color[1] > 120 && color[2] > 120) {
+            color = template[2];
+          }
+        }
+        // console.log(template[1]);
+        changeColor(color);
+    };
     
       sample_image.crossOrigin = 'anonymous';
       sample_image.src = document.getElementsByClassName('imag')[count].src;
