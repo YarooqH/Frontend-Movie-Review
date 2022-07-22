@@ -5,19 +5,22 @@ import '../styles/items.css'
 
 export default function Movies() {
   const [products, setProducts] = useState([]) 
+  const [movieNumber, setMovieNumber] = useState(4);
+  // const [movieState, setMovieState] = useState(false);
+
+  let count = 0
+  let count1 = 0
+  let count2 = 0
 
   useEffect(() => {
-    let count = 0
-    let count1 = 0
-    let count2 = 0
     getDataFromAPI();
     setTimeout(() => {
       getClr(count, count1, count2);
     }, 300);
-  }, [])
+  }, [movieNumber])
 
   const getDataFromAPI = async () => {
-    const response = await fetch('http://localhost:1337/api/movies?populate=*');
+    const response = await fetch('http://localhost:1337/api/movies?populate=*&pagination[pageSize]='+movieNumber);
     const data = await response.json();
     setProducts(data.data);
   } 
@@ -34,7 +37,7 @@ export default function Movies() {
         // console.log(color_thief.getColor(sample_image));
         color = color_thief.getColor(sample_image);
         let template = color_thief.getPalette(sample_image, 3);
-        if(color[0] < 120 && color[1] < 120 && color[2] < 120) {
+        if(color[0] >120 && color[1] > 120 && color[2] > 120) {
           color = template[1];
           if(color[0] > 120 && color[1] > 120 && color[2] > 120) {
             color = template[2];
@@ -68,6 +71,14 @@ export default function Movies() {
           count2 = count2 + 2;
       }
       count++;        
+    }
+  }
+
+  const handleSeeMore = () => {
+    if(movieNumber == 8) {
+      setMovieNumber(4);
+    } else if (movieNumber == 4) {
+      setMovieNumber(8);
     }
   }
 
@@ -117,7 +128,7 @@ export default function Movies() {
           ))}
         </div>
         <div className="btn-container">
-          <button className="button-52" role="button">Show More</button>
+          <button onClick={handleSeeMore} className="button-52" role="button">Show More</button>
         </div>
       </div>
     </div>

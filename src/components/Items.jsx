@@ -5,21 +5,25 @@ import '../styles/items.css'
 
 export default function Items() {
   const [products, setProducts] = useState([]) 
+  const [movieNumber, setMovieNumber] = useState(4); 
+
+  let count = 0
+  let count1 = 0
+  let count2 = 0
+  // let flag = false;
 
   useEffect(() => {
-    let count = 0
-    let count1 = 0
-    let count2 = 0
     getDataFromAPI();
     setTimeout(() => {
       getClr(count, count1, count2);
     }, 300);
-  }, [])
+  }, [movieNumber])
 
   const getDataFromAPI = async () => {
-    const response = await fetch('http://localhost:1337/api/reviews?populate=*');
+    const response = await fetch('http://localhost:1337/api/reviews?populate=*&pagination[pageSize]='+movieNumber);
     const data = await response.json();
     setProducts(data.data);
+    // return true;
   } 
 
   const getClr = (count, count1, count2) => {
@@ -70,6 +74,14 @@ export default function Items() {
     }
   }
 
+  const handleSeeMore = () => {
+    if(movieNumber == 8) {
+      setMovieNumber(4);
+    } else if (movieNumber == 4) {
+      setMovieNumber(8);
+    }
+  }
+
 
   return (
     <div>
@@ -105,7 +117,7 @@ export default function Items() {
           ))}
         </div>
         <div className="btn-container">
-          <button className="button-52" role="button">Show More</button>
+          <button onClick={handleSeeMore} className="button-52" role="button">Show More</button>
         </div>
       </div>
     </div>
