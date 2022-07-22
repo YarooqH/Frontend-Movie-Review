@@ -76,8 +76,12 @@ export default function Movies() {
 
   const handleSeeMore = () => {
     if(movieNumber == 8) {
+      let btnTxt = document.getElementsByClassName('button-52');
+      btnTxt[1].innerHTML = 'Show More';
       setMovieNumber(4);
     } else if (movieNumber == 4) {
+      let btnTxt = document.getElementsByClassName('button-52');
+      btnTxt[1].innerHTML = 'Show Less';
       setMovieNumber(8);
     }
   }
