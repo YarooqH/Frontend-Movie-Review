@@ -59,12 +59,9 @@ export default function Movies() {
           bkg[count1].style.backgroundColor = `rgb(${clr[0]}, ${clr[1]}, ${clr[2]})`;
           console.log(clr[0] + clr[1]);
           if((clr[0] + clr[1] + clr[2] > 380)){
-  
             txt[count2].style.color = '#000';
             txt[count2+1].style.color = '#000';
-          
           }
-
           count1++;
           count2 = count2 + 2;
       }
