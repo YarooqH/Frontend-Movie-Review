@@ -64,7 +64,7 @@ export default function Movies() {
             // }
             txt[count2].style.color = '#000';
             txt[count2+1].style.color = '#000';
-            // txt[count2-1].style.color = '#000';
+          
           }
 
           count1++;
