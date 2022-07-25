@@ -28,7 +28,7 @@ export default function Items() {
 
   const getClr = (count, count1, count2) => {
     let itemsLength = document.getElementsByClassName('imag').length;
-    console.log(itemsLength);
+    // console.log(itemsLength);
     for (let i = 0; i < itemsLength; i++) {
       let color_thief = new ColorThief();
       let sample_image = new Image();
@@ -57,7 +57,7 @@ export default function Items() {
         // txtElement = txt.length;
         console.log(txt.length);
         bkg[count1].style.backgroundColor = `rgb(${clr[0]}, ${clr[1]}, ${clr[2]})`;
-        console.log(clr[0] + clr[1]);
+        // console.log(clr[0] + clr[1]);
         if((clr[0] + clr[1] + clr[2] > 380)){
           // for(let i = 0; i < txt.length; i++) {
           //   txt[i].style.color = 'black';
@@ -96,17 +96,6 @@ export default function Items() {
         <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {products.map((product) => (
             <Link className="group" key={product.id} to={`/review/${product.id}`}>
-              {/* <a href="#" className="group"> */}
-                {/* <div className="max-h-36 aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-                  <img
-                    src={product.attributes.reviewimg.data.attributes.name}
-                    alt={product.attributes.title}
-                    className="object-center object-cover group-hover:opacity-75"
-                  />
-                </div>
-                <h3 className="mt-4 text-lg font-medium text-gray-700">{product.attributes.title}</h3>
-                <p className="mt-1 text-sm text-gray-900">{product.attributes.plot}</p> */}
-              {/* </a> */}
               <div className="rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <div>
                     <img crossOrigin="anonymous" className="imag rounded-t-lg aspect-[10/15] bg-cover" src={product.attributes.reviewimg.data.attributes.name} alt={product.attributes.title} />

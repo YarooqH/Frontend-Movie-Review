@@ -6,7 +6,6 @@ import '../styles/items.css'
 export default function Movies() {
   const [products, setProducts] = useState([]) 
   const [movieNumber, setMovieNumber] = useState(4);
-  // const [movieState, setMovieState] = useState(false);
 
   let count = 0
   let count1 = 0
@@ -27,7 +26,7 @@ export default function Movies() {
 
   const getClr = (count, count1, count2) => {
     let itemsLength = document.getElementsByClassName('imag').length;
-    console.log(itemsLength);
+    // console.log(itemsLength);
     for (let i = 0; i < itemsLength; i++) {
       let color_thief = new ColorThief();
       let sample_image = new Image();
@@ -51,13 +50,13 @@ export default function Movies() {
       sample_image.src = document.getElementsByClassName('imag')[count].src;
       
       const changeColor = (clr) => {
-          console.log(clr, count1);
+          // console.log(clr, count1);
           let bkg = document.getElementsByClassName('review');
           let txt = document.getElementsByClassName('sum-text');
           // txtElement = txt.length;
-          console.log(txt.length);
+          // console.log(txt.length);
           bkg[count1].style.backgroundColor = `rgb(${clr[0]}, ${clr[1]}, ${clr[2]})`;
-          console.log(clr[0] + clr[1]);
+          // console.log(clr[0] + clr[1]);
           if((clr[0] + clr[1] + clr[2] > 380)){
             txt[count2].style.color = '#000';
             txt[count2+1].style.color = '#000';
@@ -90,17 +89,6 @@ export default function Movies() {
         <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {products.map((product) => (
             <Link className="group" key={product.id} to={`/movie/${product.id}`}>
-              {/* <a href="#" className="group"> */}
-                {/* <div className="max-h-36 aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-                  <img
-                    src={product.attributes.reviewimg.data.attributes.name}
-                    alt={product.attributes.title}
-                    className="object-center object-cover group-hover:opacity-75"
-                  />
-                </div>
-                <h3 className="mt-4 text-lg font-medium text-gray-700">{product.attributes.title}</h3>
-                <p className="mt-1 text-sm text-gray-900">{product.attributes.plot}</p> */}
-              {/* </a> */}
               <div className="rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <div>
                     <img crossOrigin="anonymous" className="imag rounded-t-lg aspect-[10/15] bg-cover" src={product.attributes.movieImg.data.attributes.name} alt={product.attributes.title} />
@@ -110,17 +98,6 @@ export default function Movies() {
                         <h5 className="sum-text mb-2 text-2xl font-bold text-gray-900 dark:text-white">{product.attributes.title}</h5>
                     </div>
                       <p className="sum-text h-max-[8rem] mb-3 text-gray-700 dark:text-gray-400">{product.attributes.plot}</p>
-                    
-                    {/* <div className="flex justify-between items-center">
-                        <div className="flex items-center">
-                            <div className="flex items-center">
-                                <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                                </svg>
-                                <span className="text-gray-700 dark:text-gray-400">{product.attributes.rating}</span>
-                              </div>
-                            </div>
-                           </div>                  */}
                 </div>
             </div>
             </Link>
