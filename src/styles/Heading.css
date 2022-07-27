@@ -24,7 +24,22 @@
     /* -webkit-mask: linear-gradient(#000 0 0); */
     -webkit-mask-clip: text;
     mask-clip: text;
+    animation: glitch 1000ms ease-out 300ms;
 
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: 0px 0px 0px #D63737;
+    }
+    50% {
+        text-shadow: 9px 0px 0px #53b4f5;
+        color: #47ff19;
+    }
+    100% {
+        text-shadow: -9px 0px 0px #D63737;
+    }
+    
 }
 
 @media screen and (max-width: 768px) {
