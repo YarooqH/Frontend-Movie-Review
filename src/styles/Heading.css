@@ -27,6 +27,21 @@
 
 }
 
+@media screen and (max-width: 768px) {
+    .main-heading {
+        font-size: 60px;
+        text-shadow: -3px 0px 0px #D63737;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .main-heading {
+        font-size: 80px;
+        text-shadow: -5px 0px 0px #D63737;
+    }
+}
+    
+
 
 /* .main-heading:before {
     content: attr(data-text);

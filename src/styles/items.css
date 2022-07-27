@@ -107,6 +107,14 @@
   margin-bottom: -10px;
 }
 
+@media screen and (max-width: 768px) { 
+  .tv-shows{
+    font-size: 50px;
+    margin-bottom: -18px;
+  }
+}
+
+
 /* CSS */
 .button-52 {
   font-size: 16px;

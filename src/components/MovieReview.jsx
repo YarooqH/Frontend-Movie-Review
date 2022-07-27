@@ -24,7 +24,6 @@ function MovieReview() {
 
   const getClr = () => {
     // let itemsLength = document.getElementsByClassName('review-img').length;
-    // console.log(itemsLength);
       let color_thief = new ColorThief();
       let sample_image = new Image();
       let color;
